@@ -5,7 +5,7 @@ class Steam
     private $_steamid;
     private $_friendid;
     private static $esl_email = ""; //Set esl mail address
-    private static $esl_pass = ""; Set esl pw
+    private static $esl_pass = ""; //Set esl pw
 
     public function __construct($steam_id="", $friendid="")
     {
