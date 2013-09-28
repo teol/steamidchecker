@@ -245,10 +245,10 @@ class Steam
             $data = simplexml_load_file('http://steamcommunity.com/profiles/'.$this->getFriendID().'?xml=1', "SimpleXMLElement", LIBXML_NOCDATA);
 
         $retour["PSEUDO"] = $data->steamID;
-		if($retour["PSEUDO"]==""){
-			return false;
-		}
-		    $retour["VISIBLE"] = $data->visibilityState;
+	if($retour["PSEUDO"]==""){
+		return false;
+	}
+	$retour["VISIBLE"] = $data->visibilityState;
         $retour["STEAM_ID"] = $this->_steamid;
         $retour["FRIEND_ID"] = $this->_friendid;
         $retour["ONLINE"] = $data->onlineState;
@@ -256,14 +256,14 @@ class Steam
         $retour["AVATAR"]["MOYEN"] = $data->avatarMedium;
         $retour["AVATAR"]["GRAND"] = $data->avatarFull;
         $retour["VAC_BANNED"] = $data->vacBanned;
-		    $retour["COUNTRY"] = $data->location;
+	$retour["COUNTRY"] = $data->location;
         $retour["DATE_INSCRIPTION"] = $data->memberSince;
         $retour["PUBLIC"] = $data->privacyState;
         $retour["ESL"] = $this->GetEsl();
-		    $retour["BO"] = $this->getBoIdByFriendId();
-		    $retour["MW3"] = "0".$retour["BO"]; //Pour optimiser on ajoute direct le 0
-		    $retour["NOCHEATZ"] = $this->getNoCheatZ();
-		    $retour["LGZAC"] = $this->GetLgzAc();
+	$retour["BO"] = $this->getBoIdByFriendId();
+	$retour["MW3"] = "0".$retour["BO"]; //Pour optimiser on ajoute direct le 0
+	$retour["NOCHEATZ"] = $this->getNoCheatZ();
+	$retour["LGZAC"] = $this->GetLgzAc();
 		
         $date = new DateTime($retour["DATE_INSCRIPTION"]);
         $retour["DATE_INSCRIPTION"] = $date->format($date_format);
